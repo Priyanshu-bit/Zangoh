@@ -1,38 +1,83 @@
 .App {
-  text-align: center;
+  display: flex;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.content {
+  display: flex;
+  width: 100%; /* Expand the entire width of the page */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .half {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+
+  .half:first-child {
+    background-color: #f0f0f0; /* Background color for the left half */
+  }
+
+  .half:last-child {
+    background-color: #e0e0e0; /* Background color for the right half */
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.image-carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.image-carousel img {
+  max-width: 100%;
+  max-height: 400px; /* Adjust the height as needed */
+}
+
+.image-carousel button {
+  margin: 5px;
+  cursor: pointer;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: relative; /* Add this line for relative positioning */
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #333;
   color: white;
+  padding: 10px;
+  z-index: 1; /* Ensure the Navbar is above other content */
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  display: flex;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.half {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  z-index: 0; /* Ensure the content is below the Navbar */
 }
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Additional styling as needed */
