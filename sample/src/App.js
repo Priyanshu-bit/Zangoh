@@ -1,15 +1,20 @@
-
-import './App.css';
+import React from 'react';
 import Navbar from './components/Navbar';
-import Content from './components/Content';
+import './App.css';
+import ImageSlider from './components/ImageSlider';
+
+
 function App() {
   return (
-    <div className="App">
+    <div className="homepage">
+      <div className="left-half">
+   
+      </div>
+      <div className="right-half">
       
-      <Navbar />
-      <Content/>
-        
-    
+   <Navbar/>
+   <ImageSlider/>
+      </div>
     </div>
   );
 }

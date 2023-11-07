@@ -1,23 +1,40 @@
-import React from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React, { useState } from 'react';
+import './ImageSlider.css'
 
-const ImageSlider = () => {
-  const images = [
-    { url: "dog1.png", alt: "Dog 1" },
-    { url: "dog2.png", alt: "Dog 2" },
-    // Add more image URLs and alt text as needed
-  ];
+const ImageSwitcher = () => {
+  const [showSecondImage, setShowSecondImage] = useState(false);
+
+  const toggleImage = () => {
+    setShowSecondImage(true);
+  };
 
   return (
-    <Carousel showStatus={false} showThumbs={false} autoPlay infiniteLoop>
-      {images.map((image, index) => (
-        <div key={index}>
-          <img src={image.url} alt={image.alt} />
-        </div>
-      ))}
-    </Carousel>
+    <div className="image-switcher">
+      <img
+        src="dog1.png"
+        alt="Image 1"
+        style={{
+          width: '100%',
+          height: '745px',
+          objectFit: 'cover',
+          display: showSecondImage ? 'none' : 'block',
+          cursor: 'pointer',
+        }}
+        onClick={toggleImage}
+      />
+      <img
+        src="dog2.png"
+        alt="Image 2"
+        style={{
+          width: '100%',
+          height: '745px',
+          objectFit: 'cover',
+       
+          display: showSecondImage ? 'block' : 'none',
+        }}
+      />
+    </div>
   );
 };
 
-export default ImageSlider;
+export default ImageSwitcher;
